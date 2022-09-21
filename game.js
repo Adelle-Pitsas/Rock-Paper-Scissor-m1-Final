@@ -32,7 +32,33 @@ class Game {
     }
   }
 
-  declareClassicWinner() {
+  deterimineDeluxeWinner() {
+    if (this.gameChallengers.includes(rock && paper)) {
+      this.challengerWinner = paper
+    } else if (this.gameChallengers.includes(paper && scissors)) {
+      this.challengerWinner = scissors
+    } else if (this.gameChallengers.includes(scissors && rock)) {
+      this.challengerWinner = rock
+    } else if (this.gameChallengers.includes(rock && gun)) {
+      this.challengerWinner = rock
+    } else if (this.gameChallengers.includes(llama && gun)) {
+      this.challengerWinner = gun
+    } else if (this.gameChallengers.includes(llama && rock)) {
+      this.challengerWinner = llama
+    } else if (this.gameChallengers.includes(scissors && llama)) {
+      this.challengerWinner = llama
+    } else if (this.gameChallengers.includes(gun && paper)) {
+      this.challengerWinner = gun
+    } else if (this.gameChallengers.includes(scissors && gun)) {
+      this.challengerWinner = scissors
+    } else if (this.gameChallengers.includes(llama && paper)) {
+      this.challengerWinner = paper
+    }
+    declareWinner();
+  }
+
+
+  declareWinner() {
     if (this.player1Challenger === this.challengerWinner){
       this.player1.isWinner = true;
       this.player1.wins++;
