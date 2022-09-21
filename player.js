@@ -2,8 +2,8 @@ class Player {
   constructor(name, token) {
     this.name = name;
     this.token = token;
-    this.challenger = []
-    this.wins = 0
+    this.challenger = [];
+    this.wins = 0;
   }
 
   chooseRandom(choicesArray) {
@@ -12,3 +12,4 @@ class Player {
     this.challenger = choicesArray[randomIndex];
   }
 }
+
