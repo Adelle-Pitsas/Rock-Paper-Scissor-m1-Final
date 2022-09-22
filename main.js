@@ -29,7 +29,7 @@ function chooseClassicMode() { /*updating the Data Model*/
   displayChallengers(gameType);
 }
 
-function chooseDeluxeMode() {
+function chooseDeluxeMode() { /*updating the Data Model*/
   gameType = 'deluxe'
   determineGameType(gameType);
   displayChallengers(gameType);
