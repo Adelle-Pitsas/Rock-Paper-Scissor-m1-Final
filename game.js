@@ -30,7 +30,10 @@ class Game {
       this.challengerWinner = scissors
     } else if (this.gameChallengers.includes(scissors && rock)) {
       this.challengerWinner = rock
+    } else {
+      this.challengerWinner = "Draw"
     }
+    declareWinner();
   }
 
   deterimineDeluxeWinner() {
@@ -54,6 +57,8 @@ class Game {
       this.challengerWinner = scissors
     } else if (this.gameChallengers.includes(llama && paper)) {
       this.challengerWinner = paper
+    } else {
+      this.challengerWinner = "Draw"
     }
     declareWinner();
   }
@@ -66,6 +71,8 @@ class Game {
     } else if (this.player2Challenger === this.challengerWinner) {
       this.winner = player2;
       this.player2.wins++;
+    } else if (this.challengerWinner === "Draw") {
+      return;
     }
   }
 }
