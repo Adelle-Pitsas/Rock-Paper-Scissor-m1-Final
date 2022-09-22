@@ -1,5 +1,4 @@
-var player1 = new Player('human', '🦊'); /*this will be declared and clarified in the main.js file*/
-var player2 = new Player('computer', '🖥');
+
 
 var gameType = ''
 

@@ -1,3 +1,7 @@
+//Global Variables
+var player1 = new Player('human', '🦊');
+var player2 = new Player('computer', '🖥');
+
 //query selectors
 var classicGameButton = document.querySelector('#classicGameButton');
 var deluxeGameButton = document.querySelector('#deluxeGameButton');
@@ -13,6 +17,7 @@ var deluxeChallengersSection = document.querySelector('#deluxeChallengers');
 
 classicGameButton.addEventListener('click', chooseClassicMode);
 deluxeGameButton.addEventListener('click', chooseDeluxeMode);
+classicChallengersSection.addEventListener('click', beginGame)
 
 //Functions
 function hide(element) {
@@ -42,5 +47,12 @@ function displayChallengers(gameType) { /*updating the DOM*/
     show(classicChallengersSection);
   } else {
     show(deluxeChallengersSection);
+  }
+}
+
+function beginGame(event) {
+  console.log(event.target.classList[1])
+  if(event.target.classList[1] === 'challenger') {
+    console.log('YO!')
   }
 }
