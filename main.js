@@ -6,11 +6,13 @@ var paper = document.querySelector('#paper');
 var scissors = document.querySelector('#scissors');
 var challengerView = document.querySelector('#challengerView');
 var modeView = document.querySelector('#modeView');
+var classicChallengersSection = document.querySelector('#classicChallengers');
+var deluxeChallengersSection = document.querySelector('#deluxeChallengers');
 
 //Event Listeners
 
 classicGameButton.addEventListener('click', chooseClassicMode);
-
+deluxeGameButton.addEventListener('click', chooseDeluxeMode);
 
 //Functions
 function hide(element) {
@@ -24,10 +26,21 @@ function show(element) {
 function chooseClassicMode() { /*updating the Data Model*/
   gameType = 'classic';
   determineGameType(gameType);
-  displayChallengers();
+  displayChallengers(gameType);
 }
 
-function displayChallengers() { /*updating the DOM*/
+function chooseDeluxeMode() {
+  gameType = 'deluxe'
+  determineGameType(gameType);
+  displayChallengers(gameType);
+}
+
+function displayChallengers(gameType) { /*updating the DOM*/
   hide(modeView);
   show(challengerView);
+  if(gameType === 'classic') {
+    show(classicChallengersSection);
+  } else {
+    show(deluxeChallengersSection);
+  }
 }
