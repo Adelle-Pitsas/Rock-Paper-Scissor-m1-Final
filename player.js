@@ -2,14 +2,16 @@ class Player {
   constructor(name, token) {
     this.name = name;
     this.token = token;
-    this.challenger = [];
     this.wins = 0;
   }
 
-  chooseRandom(choicesArray) {
-    var randomIndex = Math.floor(Math.random() * choicesArray.length)
-    //if its not the current players turn it the other players turn
-    this.challenger = choicesArray[randomIndex];
+  takeTurn(challengerArray, challengerChoice) {
+    if (this.name === 'computer') {
+      var randomIndex = Math.floor(Math.random() * challengerArray.length)
+      var randomChallenger = challengerArray[randomIndex];
+      this.player2Challenger = randomChallenger;
+    } else if (this.name === 'human') {
+      this.player1Challenger = challengerChoice /*this will be defined in main*/
+    }
   }
 }
-
