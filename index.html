@@ -13,7 +13,7 @@
     </section>
     <section class="main-content">
       <h1>ROSHAMBO</h1>
-      <section class="mode-view">
+      <section class="mode-view" id="modeView">
         <h2 class="choose-mode">Choose your mode:</h2>
         <section class="classic-option">
           <p class="classic-game">Classic Game</p>
@@ -22,7 +22,7 @@
             <img class="paper mini-image" src="./images/Paper-hand.png">
             <img class="scissors mini-image" src="./images/scissor-hand.png">
           </div>
-          <button class="classic-game-button">Play Classic Mode</button>
+          <button class="classic-game-button" id="classicGameButton">Play Classic Mode</button>
           <p class="classic-description rules">Rock beats Scissors Scissors beats Paper Paper beats Rock</p>
         </section>
         <section class="deluxe-option">
@@ -33,18 +33,18 @@
             <img class="scissors mini-image" src="./images/scissor-hand.png">
             <img class="mittens mini-image" src="./images/mittens.png">
           </div>
-          <button class="deluxe-game-button">Play Deluxe Mode</button>
+          <button class="deluxe-game-button" id="deluxeGameButton">Play Deluxe Mode</button>
           <p class="deluxe-description rules">Rock crushes Scissors Scissors cut Paper Paper covers Rock Llama poops on Rock Rock crushes Finger Gun Finger Gun shoots Paper Paper scares Llama Llama eats Scissors Scissors jam Finger Gun</p>
         </section>
       </section>
-      <section class="challenger-view hidden">
+      <section class="challenger-view hidden" id='challengerView'>
         <h2 class="choose-challenger">Choose your challenger</h2>
-        <section class="classic-option">
-          <img class="rock mini-image" src="./images/rock-hand.png">
-          <img class="paper mini-image" src="./images/Paper-hand.png">
-          <img class="scissors mini-image" src="./images/scissor-hand.png">
+        <section class="classic-option hidden">
+          <img class="rock challenger" id="rock" src="./images/rock-hand.png">
+          <img class="paper challenger" id="paper" src="./images/Paper-hand.png">
+          <img class="scissors challenger" id="scissors" src="./images/scissor-hand.png">
         </section>
-        <section class="deluxe-option">
+        <section class="deluxe-option hidden">
           <img class="rock mini-image" src="./images/rock-hand.png">
           <img class="paper mini-image" src="./images/Paper-hand.png">
           <img class="scissors mini-image" src="./images/scissor-hand.png">

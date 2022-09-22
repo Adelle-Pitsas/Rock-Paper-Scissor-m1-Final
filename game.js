@@ -1,7 +1,20 @@
 var player1 = new Player('human', '🦊'); /*this will be declared and clarified in the main.js file*/
 var player2 = new Player('computer', '🖥');
 
+var gameType = ''
 
+var classicChallengers = [rock, paper, scissors];
+
+var deluxeChallengers = [rock, paper, scissors, fingerGun, llama]
+
+function determineGameType(type) {
+  challengerArray = ''
+  if (gameType === type) {
+    challengerArray = classicChallengers;
+  } else {
+    challengerArray = deluxeChallengers;
+  }
+}
 
 class Game {
   constructor(player1, player2, gameType/*this will be def in main*/) {
