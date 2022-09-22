@@ -1,28 +1,24 @@
-var player1 = new Player('human', 🦊); /*this will be declared and clarified in the main.js file*/
-var player2 = new Player('computer', 🖥);
+var player1 = new Player('human', '🦊'); /*this will be declared and clarified in the main.js file*/
+var player2 = new Player('computer', '🖥');
+
+
 
 class Game {
   constructor(player1, player2, gameType/*this will be def in main*/) {
     this.player1 = player1;
     this.player2 = player2;
-    this.player1Challenger = player1.challenger
+    this.player1Challenger = player1.challenger;
     this.player2Challenger = player2.challenger;
-    this.gameChallengers = [player1.challenger, player2.challenger]
+    this.gameChallengers = [player1.challenger, player2.challenger];
     this.challengerWinner = null
     this.gameType = gameType;
-    this.classicChallengers = [rock, paper, scissors];
-    this.deluxeChallengers = [rock, paper, scissors, fingerGun, llama]
     this.winner = '';
   }
 
-  determineChallengers() {
+  filterGameType() {
     if (this.gameType === 'classic') {
-      player1.takeTurn(this.classicChallengers)
-      player2.takeTurn(this.classicChallengers)
       deterimineClassicWinner()
     } else if (this.gameType === 'deluxe') {
-      player1.takeTurn(this.deluxeChallengers)
-      player2.chooseRandom(this.deluxeChallengers)
       determineDeluxeWinner()
     }
   }

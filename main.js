@@ -1,11 +1,14 @@
-var rock = 'rock'
-var paper = 'paper'
-var scissors = 'scissors'
+var gameType = ''
 
-var player1 = new Player("human", "hi", 0)
+var = classicChallengers = [rock, paper, scissors];
 
-var player2 = new Player("computer", "hi2", 0)
+var = deluxeChallengers = [rock, paper, scissors, fingerGun, llama]
 
-var newGame = new Game(player1, player2)
-
-newGame.gameType = 'classic'
+determineGameType() {
+  challengerArray = ''
+  if (gameType === 'classic') {
+    challengerArray = classicChallengers;
+  } else {
+    challengerArray = deluxeChallengers;
+  }
+}
