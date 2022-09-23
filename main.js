@@ -2,8 +2,8 @@
 var rock = "./images/rock-hand.png";
 var scissors = "./images/scissor-hand.png";
 var paper = "./images/Paper-hand.png";
-var fingerGun = 'finger-gun';
-var kowabunga = 'kowabunga';
+var fingerGun = "./images/fingergun2.png";
+var kowabunga = "./images/hang-loose2.png";
 var classicChallengers = [rock, paper, scissors];
 var deluxeChallengers = [rock, paper, scissors, fingerGun, kowabunga];
 var challengerArray
@@ -93,6 +93,7 @@ function renderFaceoff() {
   faceoffArea.innerHTML='';
   faceoffArea.innerHTML+=`
   <img class="rock challenger" src=${newGame.gameChallengers[0]}>
+  <img class="vs" src="./images/vs-image.png">
   <img class="rock challenger" src=${newGame.gameChallengers[1]}>
   `
 }

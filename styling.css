@@ -110,6 +110,17 @@ p {
 
 }
 
+/* faceoff */
+.faceoff-view {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.vs {
+  width: 150px;
+  height: 80px;
+}
 
 /* Sidebar */
 .human-sidebar,
