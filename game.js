@@ -1,28 +1,12 @@
 
-
-var gameType = ''
-
-var classicChallengers = [rock, paper, scissors];
-
-var deluxeChallengers = [rock, paper, scissors, fingerGun, llama]
-
-function determineGameType(type) {
-  challengerArray = ''
-  if (gameType === type) {
-    challengerArray = classicChallengers;
-  } else {
-    challengerArray = deluxeChallengers;
-  }
-}
-
 class Game {
-  constructor(player1, player2, gameType/*this will be def in main*/) {
-    this.player1 = player1;
-    this.player2 = player2;
-    this.player1Challenger = player1.challenger;
-    this.player2Challenger = player2.challenger;
-    this.gameChallengers = [player1.challenger, player2.challenger];
-    this.challengerWinner = null
+  constructor(gametype/*this will be def in main*/) {
+    this.player1 = new Player('human', '🦊');
+    this.player2 = new Player('computer', '🖥');
+    this.player1Challenger = this.player1.challenger;
+    this.player2Challenger = this.player2.challenger;
+    this.gameChallengers = [this.player1.challenger, this.player2.challenger];
+    this.challengerWinner = ''
     this.gameType = gameType;
     this.winner = '';
   }
@@ -57,17 +41,17 @@ class Game {
       this.challengerWinner = rock
     } else if (this.gameChallengers.includes(rock && gun)) {
       this.challengerWinner = rock
-    } else if (this.gameChallengers.includes(llama && gun)) {
+    } else if (this.gameChallengers.includes(kowabunga && gun)) {
       this.challengerWinner = gun
-    } else if (this.gameChallengers.includes(llama && rock)) {
-      this.challengerWinner = llama
-    } else if (this.gameChallengers.includes(scissors && llama)) {
-      this.challengerWinner = llama
+    } else if (this.gameChallengers.includes(kowabunga && rock)) {
+      this.challengerWinner = kowabunga
+    } else if (this.gameChallengers.includes(scissors && kowabunga)) {
+      this.challengerWinner = kowabunga
     } else if (this.gameChallengers.includes(gun && paper)) {
       this.challengerWinner = gun
     } else if (this.gameChallengers.includes(scissors && gun)) {
       this.challengerWinner = scissors
-    } else if (this.gameChallengers.includes(llama && paper)) {
+    } else if (this.gameChallengers.includes(kowabunga && paper)) {
       this.challengerWinner = paper
     } else {
       this.challengerWinner = "Draw"
