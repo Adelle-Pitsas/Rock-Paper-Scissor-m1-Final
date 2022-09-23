@@ -1,7 +1,7 @@
 //Global Variables
-var rock = 'rock';
-var scissors = 'scissors';
-var paper = 'paper';
+var rock = "./images/rock-hand.png";
+var scissors = "./images/scissor-hand.png";
+var paper = "./images/Paper-hand.png";
 var fingerGun = 'finger-gun';
 var kowabunga = 'kowabunga';
 var classicChallengers = [rock, paper, scissors];
@@ -9,8 +9,6 @@ var deluxeChallengers = [rock, paper, scissors, fingerGun, kowabunga];
 var challengerArray
 var gameType
 var newGame = new Game(gameType);
-
-
 
 //query selectors
 var classicGameButton = document.querySelector('#classicGameButton');
@@ -22,6 +20,7 @@ var challengerView = document.querySelector('#challengerView');
 var modeView = document.querySelector('#modeView');
 var classicChallengersSection = document.querySelector('#classicChallengers');
 var deluxeChallengersSection = document.querySelector('#deluxeChallengers');
+var faceoffArea = document.querySelector('#faceoffArea');
 
 //Event Listeners
 classicGameButton.addEventListener('click', chooseClassicMode);
@@ -73,7 +72,27 @@ function displayChallengers(gameType) { /*updating the DOM*/
 function chooseChallengers(event) {
   if(event.target.classList[1] === 'challenger') {
     console.log(event.target.id)
-    newGame.player1.challenger = event.target.id;
+    console.log(event)
+    newGame.player1.challenger = event.target.src;
     newGame.player2.takeTurn(challengerArray);
+    newGame.gameChallengers = []; /*this should go in the reset game function*/
+    newGame.gameChallengers.push(newGame.player1.challenger);
+    newGame.gameChallengers.push(newGame.player2.challenger);
+    getWinner();
+    renderFaceoff();
   }
+}
+
+function getWinner() { /*the datamodel*/
+  newGame.filterGameType();
+}
+
+
+function renderFaceoff() {
+  hide(challengerView);
+  faceoffArea.innerHTML='';
+  faceoffArea.innerHTML+=`
+  <img class="rock challenger" src=${newGame.gameChallengers[0]}>
+  <img class="rock challenger" src=${newGame.gameChallengers[1]}>
+  `
 }
