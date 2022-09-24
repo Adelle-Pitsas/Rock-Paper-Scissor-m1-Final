@@ -24,6 +24,7 @@ classicGameButton.addEventListener('click', chooseClassicMode);
 deluxeGameButton.addEventListener('click', chooseDeluxeMode);
 classicChallengersSection.addEventListener('click', chooseChallengers);
 deluxeChallengersSection.addEventListener('click', chooseChallengers);
+changeModeButton.addEventListener('click', goToModeChoice);
 
 //Functions
 function hide(element) {
@@ -63,8 +64,10 @@ function displayChallengers(gameType) { /*updating the DOM*/
   show(changeModeButton);
   if(gameType === 'classic') {
     show(classicChallengersSection);
+    hide(deluxeChallengersSection);
   } else {
     show(deluxeChallengersSection);
+    hide(classicChallengersSection);
   }
 }
 
@@ -163,4 +166,12 @@ function displayWinner() {
     setTimeout (function() {chooseDeluxeMode();}, 2500)
   }
   newGame.resetGame();
+}
+
+function goToModeChoice() {
+  hide(winnerDisplay);
+  hide(faceoffView);
+  hide(challengerView);
+  show(modeView);
+  hide(changeModeButton);
 }
