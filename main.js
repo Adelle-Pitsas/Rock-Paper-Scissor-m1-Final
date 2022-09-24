@@ -81,11 +81,12 @@ function chooseChallengers(event) { /*updating data model*/
 
 function getWinner() { /*the datamodel*/
   newGame.filterGameType();
-  getImages();
+  getChallengerImages();
+  getWinnerImage();
 }
 
 
-function getImages(){
+function getChallengerImages(){
   newGame.gameIconChallengers = [];
   for (var i = 0; i < newGame.gameChallengers.length; i++) {
     if(newGame.gameChallengers[i] === 'rock') {
@@ -99,6 +100,21 @@ function getImages(){
     } else if (newGame.gameChallengers[i] === 'kowabunga') {
       newGame.gameIconChallengers.push("./images/hang-loose2.png")
     }
+  }
+}
+
+function getWinnerImage() {
+  newGame.winnerIcon = '';
+  if(newGame.challengerWinner === 'rock') {
+    newGame.winnerIcon = "./images/rock-hand.png"
+  } else if (newGame.challengerWinner === 'paper') {
+    newGame.winnerIcon = "./images/Paper-hand.png"
+  } else if (newGame.challengerWinner === 'scissors') {
+    newGame.winnerIcon = "./images/scissor-hand.png"
+  } else if (newGame.challengerWinner === 'fingerGun') {
+    newGame.winnerIcon = "./images/fingergun2.png"
+  } else if (newGame.challengerWinner === 'kowabunga') {
+    newGame.winnerIcon = "./images/hang-loose2.png"
   }
   renderFaceoff();
 }
@@ -122,6 +138,7 @@ function displayWinner() {
   winnerDisplay.innerHTML='';
   winnerDisplay.innerHTML+= `
     <section class="winner">
-      <img class="faceoff-winner" src=
+      <img class="faceoff-winner" src=${newGame.winnerIcon}>
+    </section>
   `
 }

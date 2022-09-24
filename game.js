@@ -10,6 +10,7 @@ class Game {
     this.challengerWinner = ''
     this.gameType = gameType;
     this.winner = '';
+    this.winnerIcon = '';
   }
 
   filterGameType() {
