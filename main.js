@@ -23,6 +23,7 @@ var winnerDisplay = document.querySelector('#winnerDisplay');
 classicGameButton.addEventListener('click', chooseClassicMode);
 deluxeGameButton.addEventListener('click', chooseDeluxeMode);
 classicChallengersSection.addEventListener('click', chooseChallengers);
+deluxeChallengersSection.addEventListener('click', chooseChallengers);
 
 //Functions
 function hide(element) {
