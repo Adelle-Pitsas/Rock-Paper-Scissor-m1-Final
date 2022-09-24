@@ -36,25 +36,25 @@ class Game {
   }
 
   determineDeluxeWinner() {
-    if (this.gameChallengers.includes('rock' && 'paper')) {
+    if (this.gameChallengers.includes('rock') && this.gameChallengers.includes('paper')) {
       this.challengerWinner = 'paper'
-    } else if (this.gameChallengers.includes('paper' && 'scissors')) {
+    } else if (this.gameChallengers.includes('paper') && this.gameChallengers.includes('scissors')) {
       this.challengerWinner = 'scissors'
-    } else if (this.gameChallengers.includes('scissors' && 'rock')) {
+    } else if (this.gameChallengers.includes('scissors') && this.gameChallengers.includes('rock')) {
       this.challengerWinner = 'rock'
-    } else if (this.gameChallengers.includes('rock' && 'fingerGun')) {
+    } else if (this.gameChallengers.includes('rock') && this.gameChallengers.includes('fingerGun')) {
       this.challengerWinner = 'rock'
-    } else if (this.gameChallengers.includes('kowabunga' && 'fingerGun')) {
+    } else if (this.gameChallengers.includes('kowabunga') && this.gameChallengers.includes('fingerGun')) {
       this.challengerWinner = 'fingerGun'
-    } else if (this.gameChallengers.includes('kowabunga' && 'rock')) {
+    } else if (this.gameChallengers.includes('kowabunga') && this.gameChallengers.includes('rock')) {
       this.challengerWinner = 'kowabunga'
-    } else if (this.gameChallengers.includes('scissors' && 'kowabunga')) {
+    } else if (this.gameChallengers.includes('scissors') && this.gameChallengers.includes('kowabunga')) {
       this.challengerWinner = 'kowabunga'
-    } else if (this.gameChallengers.includes('fingerGun' && 'paper')) {
+    } else if (this.gameChallengers.includes('fingerGun') && this.gameChallengers.includes('paper')) {
       this.challengerWinner = 'fingerGun'
-    } else if (this.gameChallengers.includes('scissors' && 'fingerGun')) {
+    } else if (this.gameChallengers.includes('scissors') && this.gameChallengers.includes('fingerGun')) {
       this.challengerWinner = 'scissors'
-    } else if (this.gameChallengers.includes('kowabunga' && 'paper')) {
+    } else if (this.gameChallengers.includes('kowabunga') && this.gameChallengers.includes('paper')) {
       this.challengerWinner = 'paper'
     } else {
       this.challengerWinner = "Draw"
