@@ -67,7 +67,7 @@ function displayChallengers(gameType) { /*updating the DOM*/
   }
 }
 
-function chooseChallengers(event) {
+function chooseChallengers(event) { /*updating data model*/
   if(event.target.classList[1] === 'challenger') {
     console.log(event.target.id)
     newGame.player1.challenger = event.target.id;
@@ -75,27 +75,45 @@ function chooseChallengers(event) {
     newGame.gameChallengers = []; /*this should go in the reset game function*/
     newGame.gameChallengers.push(newGame.player1.challenger);
     newGame.gameChallengers.push(newGame.player2.challenger);
-    // getWinner();
-    // renderFaceoff();
+    getWinner();
   }
 }
 
 function getWinner() { /*the datamodel*/
   newGame.filterGameType();
+  getImages();
 }
 
+
+function getImages(){
+  newGame.gameIconChallengers = [];
+  for (var i = 0; i < newGame.gameChallengers.length; i++) {
+    if(newGame.gameChallengers[i] === 'rock') {
+      newGame.gameIconChallengers.push("./images/rock-hand.png")
+    } else if (newGame.gameChallengers[i] === 'paper') {
+      newGame.gameIconChallengers.push("./images/Paper-hand.png")
+    } else if (newGame.gameChallengers[i] === 'scissors') {
+      newGame.gameIconChallengers.push("./images/scissor-hand.png")
+    } else if (newGame.gameChallengers[i] === 'fingerGun') {
+      newGame.gameIconChallengers.push("./images/fingergun2.png")
+    } else if (newGame.gameChallengers[i] === 'kowabunga') {
+      newGame.gameIconChallengers.push("./images/hang-loose2.png")
+    }
+  }
+  renderFaceoff();
+}
 
 function renderFaceoff() {
   hide(challengerView);
   faceoffView.innerHTML='';
   faceoffView.innerHTML+=`
     <section class="faceoff-area">
-      <img class="faceoff-challenger" src=${newGame.gameChallengers[0]}>
+      <img class="faceoff-challenger" src=${newGame.gameIconChallengers[0]}>
       <img class="vs" src="./images/vs-image.png">
-      <img class="faceoff-challenger" src=${newGame.gameChallengers[1]}>
+      <img class="faceoff-challenger" src=${newGame.gameIconChallengers[1]}>
     </section>
   `
-  setTimeout(function(){displayWinner();}, 2000)
+  setTimeout(function(){displayWinner();}, 2500)
 }
 
 

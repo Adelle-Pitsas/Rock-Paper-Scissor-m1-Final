@@ -6,6 +6,7 @@ class Game {
     this.player1Challenger = this.player1.challenger;
     this.player2Challenger = this.player2.challenger;
     this.gameChallengers = [];
+    this.gameIconChallengers = [];
     this.challengerWinner = ''
     this.gameType = gameType;
     this.winner = '';
