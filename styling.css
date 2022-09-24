@@ -111,10 +111,16 @@ p {
 }
 
 /* faceoff */
-.faceoff-view {
+.faceoff-area {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.faceoff-challenger {
+  width: 100px;
+  height: 100px;
+  margin: 20px;
 }
 
 .vs {

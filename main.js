@@ -1,11 +1,6 @@
 //Global Variables
-var rock = "./images/rock-hand.png";
-var scissors = "./images/scissor-hand.png";
-var paper = "./images/Paper-hand.png";
-var fingerGun = "./images/fingergun2.png";
-var kowabunga = "./images/hang-loose2.png";
-var classicChallengers = [rock, paper, scissors];
-var deluxeChallengers = [rock, paper, scissors, fingerGun, kowabunga];
+var classicChallengers = ['rock', 'paper', 'scissors'];
+var deluxeChallengers = ['rock', 'paper', 'scissors', 'fingerGun', 'kowabunga'];
 var challengerArray
 var gameType
 var newGame = new Game(gameType);
@@ -20,7 +15,9 @@ var challengerView = document.querySelector('#challengerView');
 var modeView = document.querySelector('#modeView');
 var classicChallengersSection = document.querySelector('#classicChallengers');
 var deluxeChallengersSection = document.querySelector('#deluxeChallengers');
-var faceoffArea = document.querySelector('#faceoffArea');
+var faceoffView = document.querySelector('#faceoffView');
+var changeModeButton = document.querySelector('#changeModeButton');
+var winnerDisplay = document.querySelector('#winnerDisplay');
 
 //Event Listeners
 classicGameButton.addEventListener('click', chooseClassicMode);
@@ -62,6 +59,7 @@ function determineGameType(type) {
 function displayChallengers(gameType) { /*updating the DOM*/
   hide(modeView);
   show(challengerView);
+  show(changeModeButton);
   if(gameType === 'classic') {
     show(classicChallengersSection);
   } else {
@@ -69,31 +67,78 @@ function displayChallengers(gameType) { /*updating the DOM*/
   }
 }
 
-function chooseChallengers(event) {
+function chooseChallengers(event) { /*updating data model*/
   if(event.target.classList[1] === 'challenger') {
     console.log(event.target.id)
-    console.log(event)
-    newGame.player1.challenger = event.target.src;
+    newGame.player1.challenger = event.target.id;
     newGame.player2.takeTurn(challengerArray);
     newGame.gameChallengers = []; /*this should go in the reset game function*/
     newGame.gameChallengers.push(newGame.player1.challenger);
     newGame.gameChallengers.push(newGame.player2.challenger);
     getWinner();
-    renderFaceoff();
   }
 }
 
 function getWinner() { /*the datamodel*/
   newGame.filterGameType();
+  getChallengerImages();
+  getWinnerImage();
 }
 
 
+function getChallengerImages(){
+  newGame.gameIconChallengers = [];
+  for (var i = 0; i < newGame.gameChallengers.length; i++) {
+    if(newGame.gameChallengers[i] === 'rock') {
+      newGame.gameIconChallengers.push("./images/rock-hand.png")
+    } else if (newGame.gameChallengers[i] === 'paper') {
+      newGame.gameIconChallengers.push("./images/Paper-hand.png")
+    } else if (newGame.gameChallengers[i] === 'scissors') {
+      newGame.gameIconChallengers.push("./images/scissor-hand.png")
+    } else if (newGame.gameChallengers[i] === 'fingerGun') {
+      newGame.gameIconChallengers.push("./images/fingergun2.png")
+    } else if (newGame.gameChallengers[i] === 'kowabunga') {
+      newGame.gameIconChallengers.push("./images/hang-loose2.png")
+    }
+  }
+}
+
+function getWinnerImage() {
+  newGame.winnerIcon = '';
+  if(newGame.challengerWinner === 'rock') {
+    newGame.winnerIcon = "./images/rock-hand.png"
+  } else if (newGame.challengerWinner === 'paper') {
+    newGame.winnerIcon = "./images/Paper-hand.png"
+  } else if (newGame.challengerWinner === 'scissors') {
+    newGame.winnerIcon = "./images/scissor-hand.png"
+  } else if (newGame.challengerWinner === 'fingerGun') {
+    newGame.winnerIcon = "./images/fingergun2.png"
+  } else if (newGame.challengerWinner === 'kowabunga') {
+    newGame.winnerIcon = "./images/hang-loose2.png"
+  }
+  renderFaceoff();
+}
+
 function renderFaceoff() {
   hide(challengerView);
-  faceoffArea.innerHTML='';
-  faceoffArea.innerHTML+=`
-  <img class="rock challenger" src=${newGame.gameChallengers[0]}>
-  <img class="vs" src="./images/vs-image.png">
-  <img class="rock challenger" src=${newGame.gameChallengers[1]}>
+  faceoffView.innerHTML='';
+  faceoffView.innerHTML+=`
+    <section class="faceoff-area">
+      <img class="faceoff-challenger" src=${newGame.gameIconChallengers[0]}>
+      <img class="vs" src="./images/vs-image.png">
+      <img class="faceoff-challenger" src=${newGame.gameIconChallengers[1]}>
+    </section>
+  `
+  setTimeout(function(){displayWinner();}, 2500)
+}
+
+
+function displayWinner() {
+  hide(faceoffView)
+  winnerDisplay.innerHTML='';
+  winnerDisplay.innerHTML+= `
+    <section class="winner">
+      <img class="faceoff-winner" src=${newGame.winnerIcon}>
+    </section>
   `
 }
