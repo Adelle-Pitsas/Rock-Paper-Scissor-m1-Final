@@ -1,10 +1,10 @@
 
 class Game {
   constructor(gametype/*this will be def in main*/) {
-    this.player1 = new Player('human', '🦊');
-    this.player2 = new Player('computer', '🖥');
-    this.player1Challenger = this.player1.challenger;
-    this.player2Challenger = this.player2.challenger;
+    this.player1 = new Player('Human', '🦊');
+    this.player2 = new Player('Computer', '🖥');
+    // this.player1Challenger = this.player1.challenger;
+    // this.player2Challenger = this.player2.challenger;
     this.gameChallengers = [];
     this.gameIconChallengers = [];
     this.challengerWinner = ''
@@ -63,14 +63,24 @@ class Game {
 
 
   declareWinner() {
-    if (this.player1Challenger === this.challengerWinner){
+    if (this.player1.challenger === this.challengerWinner){
       this.winner = this.player1;
       this.player1.wins++;
-    } else if (this.player2Challenger === this.challengerWinner) {
+    } else if (this.player2.challenger === this.challengerWinner) {
       this.winner = this.player2;
       this.player2.wins++;
     } else if (this.challengerWinner === "Draw") {
       return;
     }
+  }
+
+  resetGame() {
+    this.player1.challenger = '';
+    this.player2.challenger = '';
+    this.gameChallengers = [];
+    this.gameIconChallengers = [];
+    this.challengerWinner = '';
+    this.winner = '';
+    this.winnerIcon = '';
   }
 }
