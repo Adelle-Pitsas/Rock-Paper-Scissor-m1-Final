@@ -72,22 +72,24 @@ function chooseChallengers(event) { /*updating data model*/
     console.log(event.target.id)
     newGame.player1.challenger = event.target.id;
     newGame.player2.takeTurn(challengerArray);
-    newGame.gameChallengers = []; /*this should go in the reset game function*/
-    newGame.gameChallengers.push(newGame.player1.challenger);
-    newGame.gameChallengers.push(newGame.player2.challenger);
-    getWinner();
+    rallyTheTroops();
   }
 }
 
-function getWinner() { /*the datamodel*/
+function rallyTheTroops() {
+    newGame.gameChallengers.push(newGame.player1.challenger);
+    newGame.gameChallengers.push(newGame.player2.challenger);
+    updateChallengers();
+}
+
+function updateChallengers() { /*the datamodel*/
   newGame.filterGameType();
   getChallengerImages();
-  getWinnerImage();
+  renderFaceoff();
 }
 
 
-function getChallengerImages(){
-  newGame.gameIconChallengers = [];
+function getChallengerImages() {
   for (var i = 0; i < newGame.gameChallengers.length; i++) {
     if(newGame.gameChallengers[i] === 'rock') {
       newGame.gameIconChallengers.push("./images/rock-hand.png")
@@ -103,6 +105,22 @@ function getChallengerImages(){
   }
 }
 
+function renderFaceoff() {
+  hide(challengerView);
+  faceoffView.innerHTML='';
+  show(faceoffView);
+  faceoffView.innerHTML+=`
+    <section class="faceoff-area">
+      <img class="faceoff-challenger" src=${newGame.gameIconChallengers[0]}>
+      <img class="vs" src="./images/vs-image.png">
+      <img class="faceoff-challenger" src=${newGame.gameIconChallengers[1]}>
+    </section>
+  `
+  getWinnerImage();
+  setTimeout(function(){displayWinner();}, 2500)
+}
+
+
 function getWinnerImage() {
   newGame.winnerIcon = '';
   if(newGame.challengerWinner === 'rock') {
@@ -116,20 +134,6 @@ function getWinnerImage() {
   } else if (newGame.challengerWinner === 'kowabunga') {
     newGame.winnerIcon = "./images/hang-loose2.png"
   }
-  renderFaceoff();
-}
-
-function renderFaceoff() {
-  hide(challengerView);
-  faceoffView.innerHTML='';
-  faceoffView.innerHTML+=`
-    <section class="faceoff-area">
-      <img class="faceoff-challenger" src=${newGame.gameIconChallengers[0]}>
-      <img class="vs" src="./images/vs-image.png">
-      <img class="faceoff-challenger" src=${newGame.gameIconChallengers[1]}>
-    </section>
-  `
-  setTimeout(function(){displayWinner();}, 2500)
 }
 
 
@@ -143,6 +147,6 @@ function displayWinner() {
     </section>
   `
   newGame.resetGame();
-  setTimeout (function() {chooseClassicMode();}, 2500)
-  setTimeout (function() {hide(winnerDisplay);}, 2500)
+  // setTimeout (function() {chooseClassicMode();}, 2500)
+  // setTimeout (function() {hide(winnerDisplay);}, 2500)
 }

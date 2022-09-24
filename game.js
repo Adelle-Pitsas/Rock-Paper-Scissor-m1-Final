@@ -75,6 +75,8 @@ class Game {
   }
 
   resetGame() {
+    this.player1.challenger = '';
+    this.player2.challenger = '';
     this.gameChallengers = [];
     this.gameIconChallengers = [];
     this.challengerWinner = '';
