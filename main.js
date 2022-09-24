@@ -139,6 +139,10 @@ function displayWinner() {
   winnerDisplay.innerHTML+= `
     <section class="winner">
       <img class="faceoff-winner" src=${newGame.winnerIcon}>
+      <p class='winner-text'>${newGame.winner.name} wins!</p>
     </section>
   `
+  newGame.resetGame();
+  setTimeout (function() {chooseClassicMode();}, 2500)
+  setTimeout (function() {hide(winnerDisplay);}, 2500)
 }
