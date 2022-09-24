@@ -23,6 +23,7 @@ var winnerDisplay = document.querySelector('#winnerDisplay');
 classicGameButton.addEventListener('click', chooseClassicMode);
 deluxeGameButton.addEventListener('click', chooseDeluxeMode);
 classicChallengersSection.addEventListener('click', chooseChallengers);
+deluxeChallengersSection.addEventListener('click', chooseChallengers);
 
 //Functions
 function hide(element) {
@@ -156,7 +157,7 @@ function displayWinner() {
   `
   }
   setTimeout (function() {hide(winnerDisplay);}, 2500)
-  if (newGame.gameType = 'classic') {
+  if (newGame.gameType === 'classic') {
     setTimeout (function() {chooseClassicMode();}, 2500)
   } else {
     setTimeout (function() {chooseDeluxeMode();}, 2500)
