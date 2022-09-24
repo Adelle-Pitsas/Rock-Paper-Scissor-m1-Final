@@ -141,12 +141,20 @@ function displayWinner() {
   hide(faceoffView)
   winnerDisplay.innerHTML='';
   show(winnerDisplay);
+  if (newGame.challengerWinner === 'Draw') {
+    winnerDisplay.innerHTML+= `
+    <section class="winner">
+      <p class='draw'>It's a draw!</p>
+    </section>
+    `
+  } else {
   winnerDisplay.innerHTML+= `
     <section class="winner">
       <img class="faceoff-winner" src=${newGame.winnerIcon}>
       <p class='winner-text'>${newGame.winner.name} wins!</p>
     </section>
   `
+  }
   setTimeout (function() {hide(winnerDisplay);}, 2500)
   if (newGame.gameType = 'classic') {
     setTimeout (function() {chooseClassicMode();}, 2500)
