@@ -21,12 +21,12 @@ class Game {
 
   deterimineClassicWinner() {
     this.challengerWinner = ''; /*this should go in the reset gane function*/
-    if (this.gameChallengers.includes('rock' && 'paper')) {
-      this.challengerWinner = paper
-    } else if (this.gameChallengers.includes('paper' && 'scissors')) {
-      this.challengerWinner = scissors
-    } else if (this.gameChallengers.includes('scissors' && 'rock')) {
-      this.challengerWinner = rock
+    if (this.gameChallengers.includes('rock') && this.gameChallengers.includes('paper')) {
+      this.challengerWinner = 'paper'
+    } else if (this.gameChallengers.includes('paper') && this.gameChallengers.includes('scissors')) {
+      this.challengerWinner = 'scissors'
+    } else if (this.gameChallengers.includes('scissors') && this.gameChallengers.includes('rock')) {
+      this.challengerWinner = 'rock'
     } else {
       this.challengerWinner = "Draw"
     }

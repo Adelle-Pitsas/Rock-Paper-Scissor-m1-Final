@@ -9,7 +9,7 @@
     <section class="human-sidebar">
       <h3>Player</h3>
       <p class="player-token">🦊</p>
-      <button class='change-mode-button hidden'>Change Mode</button>
+      <button class='change-mode-button hidden' id="changeModeButton">Change Mode</button>
     </section>
     <section class="main-content">
       <h1>ROSHAMBO</h1>
@@ -63,10 +63,12 @@
           <img class="hang-loose challenger" src="./images/hang-loose2.png">
         </section>
       </section>
-      <section class='faceoff-view' id='faceoffArea'>
+      <section class='faceoff-view' id='faceoffView'>
         <!-- faceoff challengers go here -->
       </section>
-
+      <section class="winner-section" id="winnerDisplay">
+        <!-- winners will go here -->
+      </section>
     </section>
     <section class="computer-sidebar">
       <h3>Computer</h3>
