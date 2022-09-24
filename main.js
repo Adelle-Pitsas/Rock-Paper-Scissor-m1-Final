@@ -157,7 +157,7 @@ function displayWinner() {
   `
   }
   setTimeout (function() {hide(winnerDisplay);}, 2500)
-  if (newGame.gameType = 'classic') {
+  if (newGame.gameType === 'classic') {
     setTimeout (function() {chooseClassicMode();}, 2500)
   } else {
     setTimeout (function() {chooseDeluxeMode();}, 2500)
