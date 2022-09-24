@@ -140,13 +140,18 @@ function getWinnerImage() {
 function displayWinner() {
   hide(faceoffView)
   winnerDisplay.innerHTML='';
+  show(winnerDisplay);
   winnerDisplay.innerHTML+= `
     <section class="winner">
       <img class="faceoff-winner" src=${newGame.winnerIcon}>
       <p class='winner-text'>${newGame.winner.name} wins!</p>
     </section>
   `
+  setTimeout (function() {hide(winnerDisplay);}, 2500)
+  if (newGame.gameType = 'classic') {
+    setTimeout (function() {chooseClassicMode();}, 2500)
+  } else {
+    setTimeout (function() {chooseDeluxeMode();}, 2500)
+  }
   newGame.resetGame();
-  // setTimeout (function() {chooseClassicMode();}, 2500)
-  // setTimeout (function() {hide(winnerDisplay);}, 2500)
 }
