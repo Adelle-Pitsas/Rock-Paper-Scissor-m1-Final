@@ -46,7 +46,7 @@ function chooseDeluxeMode() { /*updating the Data Model*/
   gameType = '';
   gameType = 'deluxe';
   newGame.gameType = 'deluxe';
-  determinechallengers(gameType);
+  determineChallengers(gameType);
   displayChallengers(gameType);
 }
 
@@ -111,6 +111,7 @@ function getChallengerImages() {
 
 function renderFaceoff() {
   hide(challengerView);
+  hide(changeModeButton)
   faceoffView.innerHTML='';
   show(faceoffView);
   faceoffView.innerHTML+=`
