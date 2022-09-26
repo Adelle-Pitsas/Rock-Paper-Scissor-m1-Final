@@ -1,9 +1,9 @@
 //Global Variables
-var classicChallengers = ['rock', 'paper', 'scissors'];
-var deluxeChallengers = ['rock', 'paper', 'scissors', 'fingerGun', 'kowabunga'];
 var challengerArray
 var gameType
-var newGame = new Game(gameType);
+var newGame = new Game();
+var classicChallengers = ['rock', 'paper', 'scissors'];
+var deluxeChallengers = ['rock', 'paper', 'scissors', 'fingerGun', 'kowabunga'];
 
 //query selectors
 var classicGameButton = document.querySelector('#classicGameButton');
@@ -38,6 +38,7 @@ function show(element) {
 }
 
 function chooseClassicMode() { /*updating the Data Model*/
+  gameType = ''
   gameType = 'classic';
   newGame.gameType = 'classic';
   determineGameType(gameType);
@@ -45,6 +46,7 @@ function chooseClassicMode() { /*updating the Data Model*/
 }
 
 function chooseDeluxeMode() { /*updating the Data Model*/
+  gameType = '';
   gameType = 'deluxe';
   newGame.gameType = 'deluxe';
   determineGameType(gameType);
@@ -52,8 +54,8 @@ function chooseDeluxeMode() { /*updating the Data Model*/
 }
 
 function determineGameType(type) {
-  challengerArray = ''
-  if (gameType === type) {
+  challengerArray = '';
+  if (gameType === 'classic') {
     challengerArray = classicChallengers;
   } else {
     challengerArray = deluxeChallengers;
