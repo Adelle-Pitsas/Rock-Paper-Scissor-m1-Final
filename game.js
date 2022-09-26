@@ -1,14 +1,15 @@
 
 class Game {
-  constructor() {
+  constructor(gameType) {
     this.player1 = new Player('Human', '🦊');
     this.player2 = new Player('Computer', '🖥');
-    // this.player1Challenger = this.player1.challenger;
-    // this.player2Challenger = this.player2.challenger;
     this.gameChallengers = [];
     this.gameIconChallengers = [];
     this.challengerWinner = '';
-    this.gameType = gameType;
+    this.gameType = '';
+    this.challengerOptions = '';
+    this.classicChallengers = ['rock', 'paper', 'scissors'];
+    this.deluxeChallengers = ['rock', 'paper', 'scissors', 'fingerGun', 'kowabunga'];
     this.winner = '';
     this.winnerIcon = '';
   }
@@ -74,7 +75,8 @@ class Game {
     }
   }
 
-  resetGame() {
+  resetGameInfo() {
+    this.challengerOptions = '';
     this.player1.challenger = '';
     this.player2.challenger = '';
     this.gameChallengers = [];
