@@ -18,6 +18,8 @@ var deluxeChallengersSection = document.querySelector('#deluxeChallengers');
 var faceoffView = document.querySelector('#faceoffView');
 var changeModeButton = document.querySelector('#changeModeButton');
 var winnerDisplay = document.querySelector('#winnerDisplay');
+var humanWinCounter = document.querySelector('#humanWinCounter');
+var computerWinCounter = document.querySelector('#computerWinCounter');
 
 //Event Listeners
 classicGameButton.addEventListener('click', chooseClassicMode);
@@ -147,18 +149,20 @@ function displayWinner() {
   show(winnerDisplay);
   if (newGame.challengerWinner === 'Draw') {
     winnerDisplay.innerHTML+= `
-    <section class="winner">
-      <p class='draw'>It's a draw!</p>
-    </section>
+      <section class="winner">
+        <p class='draw'>It's a draw!</p>
+      </section>
     `
   } else {
-  winnerDisplay.innerHTML+= `
-    <section class="winner">
-      <img class="faceoff-winner" src=${newGame.winnerIcon}>
-      <p class='winner-text'>${newGame.winner.name} wins!</p>
-    </section>
-  `
+    winnerDisplay.innerHTML+= `
+      <section class="winner">
+        <img class="faceoff-winner" src=${newGame.winnerIcon}>
+        <p class='winner-text'>${newGame.winner.name} wins!</p>
+      </section>
+    `
   }
+  displayWins(humanWinCounter, newGame.player1.wins);
+  displayWins(computerWinCounter, newGame.player2.wins);
   setTimeout (function() {hide(winnerDisplay);}, 2500)
   if (newGame.gameType === 'classic') {
     setTimeout (function() {chooseClassicMode();}, 2500)
@@ -167,6 +171,14 @@ function displayWinner() {
   }
   newGame.resetGame();
 }
+
+function displayWins(counter, playerWins) {
+  counter.innerText = ''
+  counter.innerText += `
+    Wins: ${playerWins}
+  `
+}
+
 
 function goToModeChoice() {
   hide(winnerDisplay);
