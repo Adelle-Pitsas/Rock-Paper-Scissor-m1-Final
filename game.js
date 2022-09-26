@@ -1,13 +1,13 @@
 
 class Game {
-  constructor(gametype/*this will be def in main*/) {
+  constructor() {
     this.player1 = new Player('Human', '🦊');
     this.player2 = new Player('Computer', '🖥');
     // this.player1Challenger = this.player1.challenger;
     // this.player2Challenger = this.player2.challenger;
     this.gameChallengers = [];
     this.gameIconChallengers = [];
-    this.challengerWinner = ''
+    this.challengerWinner = '';
     this.gameType = gameType;
     this.winner = '';
     this.winnerIcon = '';
