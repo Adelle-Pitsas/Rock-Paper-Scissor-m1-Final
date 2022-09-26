@@ -113,9 +113,9 @@ function renderFaceoff() {
   show(faceoffView);
   faceoffView.innerHTML+=`
     <section class="faceoff-area">
-      <img class="faceoff-challenger" src=${newGame.gameIconChallengers[0]}>
-      <img class="vs" src="./images/vs-image.png">
-      <img class="faceoff-challenger" src=${newGame.gameIconChallengers[1]}>
+      <img class="faceoff-challenger" src=${newGame.gameIconChallengers[0]} alt="${newGame.player1.challenger}">
+      <img class="vs" src="./images/vs-image.png" alt="versus">
+      <img class="faceoff-challenger" src=${newGame.gameIconChallengers[1]} alt="${newGame.player2.challenger}">
     </section>
   `
   getWinnerImage();
@@ -152,7 +152,7 @@ function displayWinner() {
   } else {
     winnerDisplay.innerHTML+= `
       <section class="winner">
-        <img class="faceoff-winner" src=${newGame.winnerIcon}>
+        <img class="faceoff-winner" src=${newGame.winnerIcon} alt=${newGame.challengerWinner}>
         <p class='winner-text'>${newGame.winner.name} wins!</p>
       </section>
     `
