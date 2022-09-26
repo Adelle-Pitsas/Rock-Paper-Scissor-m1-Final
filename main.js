@@ -2,7 +2,7 @@
 var gameType
 var newGame = new Game(gameType);
 
-//query selectors
+//Query Selectors
 var classicGameButton = document.querySelector('#classicGameButton');
 var deluxeGameButton = document.querySelector('#deluxeGameButton');
 var rockIcon = document.querySelector('#rock');
@@ -28,27 +28,25 @@ changeModeButton.addEventListener('click', goToModeChoice);
 //Functions
 function hide(element) {
   element.classList.add('hidden');
-}
+};
 
 function show(element) {
   element.classList.remove('hidden')
-}
+};
 
-function chooseClassicMode() { /*updating the Data Model*/
-  gameType = ''
+function chooseClassicMode() {
   gameType = 'classic';
   newGame.gameType = 'classic';
   determineChallengers(gameType);
   displayChallengers(gameType);
-}
+};
 
-function chooseDeluxeMode() { /*updating the Data Model*/
-  gameType = '';
+function chooseDeluxeMode() {
   gameType = 'deluxe';
   newGame.gameType = 'deluxe';
   determineChallengers(gameType);
   displayChallengers(gameType);
-}
+};
 
 function determineChallengers(type) {
   if (gameType === 'classic') {
@@ -56,9 +54,9 @@ function determineChallengers(type) {
   } else {
     newGame.challengerOptions = newGame.deluxeChallengers;
   }
-}
+};
 
-function displayChallengers(gameType) { /*updating the DOM*/
+function displayChallengers(gameType) {
   hide(modeView);
   show(challengerView);
   show(changeModeButton);
@@ -69,28 +67,27 @@ function displayChallengers(gameType) { /*updating the DOM*/
     show(deluxeChallengersSection);
     hide(classicChallengersSection);
   }
-}
+};
 
-function chooseChallengers(event) { /*updating data model*/
+function chooseChallengers(event) {
   if(event.target.classList[1] === 'challenger') {
-    console.log(event.target.id)
     newGame.player1.challenger = event.target.id;
     newGame.player2.takeTurn(newGame.challengerOptions);
-    rallyTheTroops();
+    compileChallengers();
   }
-}
+};
 
-function rallyTheTroops() {
+function compileChallengers() {
     newGame.gameChallengers.push(newGame.player1.challenger);
     newGame.gameChallengers.push(newGame.player2.challenger);
     updateChallengers();
-}
+};
 
-function updateChallengers() { /*the datamodel*/
+function updateChallengers() {
   newGame.filterGameType();
   getChallengerImages();
   renderFaceoff();
-}
+};
 
 
 function getChallengerImages() {
@@ -107,7 +104,7 @@ function getChallengerImages() {
       newGame.gameIconChallengers.push("./images/hang-loose2.png")
     }
   }
-}
+};
 
 function renderFaceoff() {
   hide(challengerView);
@@ -122,8 +119,8 @@ function renderFaceoff() {
     </section>
   `
   getWinnerImage();
-  setTimeout(function(){displayWinner();}, 2500)
-}
+  setTimeout(function(){displayWinner();}, 2000)
+};
 
 
 function getWinnerImage() {
@@ -139,7 +136,7 @@ function getWinnerImage() {
   } else if (newGame.challengerWinner === 'kowabunga') {
     newGame.winnerIcon = "./images/hang-loose2.png"
   }
-}
+};
 
 
 function displayWinner() {
@@ -163,25 +160,24 @@ function displayWinner() {
   displayWins(humanWinCounter, newGame.player1.wins);
   displayWins(computerWinCounter, newGame.player2.wins);
   displayNewGame();
-}
+};
 
 function displayNewGame() {
-  setTimeout (function() {hide(winnerDisplay);}, 2500)
+  setTimeout (function() {hide(winnerDisplay);}, 2000)
   if (newGame.gameType === 'classic') {
-    setTimeout (function() {chooseClassicMode();}, 2500)
+    setTimeout (function() {chooseClassicMode();}, 2000)
   } else {
-    setTimeout (function() {chooseDeluxeMode();}, 2500)
+    setTimeout (function() {chooseDeluxeMode();}, 2000)
   }
   newGame.resetGameInfo();
-}
+};
 
 function displayWins(counter, playerWins) {
   counter.innerText = ''
   counter.innerText += `
     Wins: ${playerWins}
   `
-}
-
+};
 
 function goToModeChoice() {
   hide(winnerDisplay);
@@ -189,4 +185,4 @@ function goToModeChoice() {
   hide(challengerView);
   show(modeView);
   hide(changeModeButton);
-}
+};
