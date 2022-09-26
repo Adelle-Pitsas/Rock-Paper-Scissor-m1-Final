@@ -1,9 +1,6 @@
 //Global Variables
-var challengerArray
 var gameType
-var newGame = new Game();
-var classicChallengers = ['rock', 'paper', 'scissors'];
-var deluxeChallengers = ['rock', 'paper', 'scissors', 'fingerGun', 'kowabunga'];
+var newGame = new Game(gameType);
 
 //query selectors
 var classicGameButton = document.querySelector('#classicGameButton');
@@ -41,7 +38,7 @@ function chooseClassicMode() { /*updating the Data Model*/
   gameType = ''
   gameType = 'classic';
   newGame.gameType = 'classic';
-  determineGameType(gameType);
+  determineChallengers(gameType);
   displayChallengers(gameType);
 }
 
@@ -49,16 +46,15 @@ function chooseDeluxeMode() { /*updating the Data Model*/
   gameType = '';
   gameType = 'deluxe';
   newGame.gameType = 'deluxe';
-  determineGameType(gameType);
+  determinechallengers(gameType);
   displayChallengers(gameType);
 }
 
-function determineGameType(type) {
-  challengerArray = '';
+function determineChallengers(type) {
   if (gameType === 'classic') {
-    challengerArray = classicChallengers;
+    newGame.challengerOptions = newGame.classicChallengers;
   } else {
-    challengerArray = deluxeChallengers;
+    newGame.challengerOptions = newGame.deluxeChallengers;
   }
 }
 
@@ -79,7 +75,7 @@ function chooseChallengers(event) { /*updating data model*/
   if(event.target.classList[1] === 'challenger') {
     console.log(event.target.id)
     newGame.player1.challenger = event.target.id;
-    newGame.player2.takeTurn(challengerArray);
+    newGame.player2.takeTurn(newGame.challengerOptions);
     rallyTheTroops();
   }
 }
@@ -165,13 +161,17 @@ function displayWinner() {
   }
   displayWins(humanWinCounter, newGame.player1.wins);
   displayWins(computerWinCounter, newGame.player2.wins);
+  displayNewGame();
+}
+
+function displayNewGame() {
   setTimeout (function() {hide(winnerDisplay);}, 2500)
   if (newGame.gameType === 'classic') {
     setTimeout (function() {chooseClassicMode();}, 2500)
   } else {
     setTimeout (function() {chooseDeluxeMode();}, 2500)
   }
-  newGame.resetGame();
+  newGame.resetGameInfo();
 }
 
 function displayWins(counter, playerWins) {
