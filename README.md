@@ -10,8 +10,10 @@ This app allows users to play a classic and deluxe version of Rock, Paper, Sciss
 
 ### Preview of the App:
 https://vimeo.com/754374292/c19ebda553
+<img width="1415" alt="Screen Shot 2022-09-27 at 12 59 03 PM" src="https://user-images.githubusercontent.com/108096652/192589626-c2406a38-f591-44a9-910f-a5f1ef2b5382.png">
 
-###Context:
+
+### Context:
 This app prompt was given as the final project assignment for the first module at Turing--about 5 weeks into the program. This is a culmination of all that we learned in the first mod, with some of the content going beyond the breadth of the curriculum at Turing, requiring outside research and collaboration. Overall, the project took about 20 hours to reach its final iteration.
 
 
