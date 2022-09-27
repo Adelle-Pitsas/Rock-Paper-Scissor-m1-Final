@@ -1,7 +1,6 @@
-
 class Game {
   constructor(gameType) {
-    this.player1 = new Player('Human', '🦊');
+    this.player1 = new Player('Player', '🦊');
     this.player2 = new Player('Computer', '🖥');
     this.gameChallengers = [];
     this.gameIconChallengers = [];
