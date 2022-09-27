@@ -1,7 +1,6 @@
-
 class Game {
   constructor(gameType) {
-    this.player1 = new Player('Human', '🦊');
+    this.player1 = new Player('Player', '🦊');
     this.player2 = new Player('Computer', '🖥');
     this.gameChallengers = [];
     this.gameIconChallengers = [];
@@ -20,10 +19,9 @@ class Game {
     } else if (this.gameType === 'deluxe') {
       this.determineDeluxeWinner()
     }
-  }
+  };
 
   deterimineClassicWinner() {
-    this.challengerWinner = ''; /*this should go in the reset gane function*/
     if (this.gameChallengers.includes('rock') && this.gameChallengers.includes('paper')) {
       this.challengerWinner = 'paper'
     } else if (this.gameChallengers.includes('paper') && this.gameChallengers.includes('scissors')) {
@@ -34,7 +32,7 @@ class Game {
       this.challengerWinner = "Draw"
     }
     this.declareWinner();
-  }
+  };
 
   determineDeluxeWinner() {
     if (this.gameChallengers.includes('rock') && this.gameChallengers.includes('paper')) {
@@ -60,7 +58,7 @@ class Game {
     } else {
       this.challengerWinner = "Draw"
     } this.declareWinner();
-  }
+  };
 
 
   declareWinner() {
@@ -73,7 +71,7 @@ class Game {
     } else if (this.challengerWinner === "Draw") {
       return;
     }
-  }
+  };
 
   resetGameInfo() {
     this.challengerOptions = '';
@@ -85,4 +83,4 @@ class Game {
     this.winner = '';
     this.winnerIcon = '';
   }
-}
+};
